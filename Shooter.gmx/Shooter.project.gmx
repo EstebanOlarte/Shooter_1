@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_Explote1</sound>
+    <sound>sound\snd_Explote2</sound>
+    <sound>sound\snd_Fondo</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Plane</sprite>
     <sprite>sprites\spr_island1</sprite>
@@ -22,8 +26,32 @@
     <sprite>sprites\spr_Life</sprite>
     <sprite>sprites\spr_Score</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_Island1</object>
+    <object>objects\obj_Island2</object>
+    <object>objects\obj_Island3</object>
+    <object>objects\obj_Plane</object>
+    <object>objects\obj_PlaneBullet</object>
+    <object>objects\obj_EnemyBullet</object>
+    <object>objects\obj_EnemyBullet2</object>
+    <object>objects\obj_Enemy1</object>
+    <object>objects\obj_Enemy2</object>
+    <object>objects\obj_Enemy3</object>
+    <object>objects\obj_Enemys</object>
+    <object>objects\obj_Puntuaciom</object>
+    <object>objects\obj_Explote1</object>
+    <object>objects\obj_Explote2</object>
+  </objects>
+  <timelines name="timelines">
+    <timeline>timelines\enemigos</timeline>
+  </timelines>
+  <rooms name="rooms">
+    <room>rooms\Level_1</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>

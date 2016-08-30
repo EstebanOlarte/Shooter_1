@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>vspeed=2;
+if room == bonus {vspeed=3}
 if y &gt; room_height
     {
     x= random(room_width)

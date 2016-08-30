@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>
+
 move_towards_point(obj_Plane.x,obj_Plane.y,15)
+
 </string>
           </argument>
         </arguments>

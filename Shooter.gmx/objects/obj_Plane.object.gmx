@@ -30,6 +30,61 @@
 Rapidez=8;
 Disparo=true;
 N_shots=5
+powerup=false
+invencible=false
+
+if room == bonus
+{alarm[2]=1200}
+else
+{audio_play_sound(snd_Fondo,10,true)}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(Level_1)
+audio_stop_all()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>powerup=false
 </string>
           </argument>
         </arguments>
@@ -82,6 +137,9 @@ Abajo = keyboard_check(vk_down)
 Izquierda = keyboard_check(vk_left)
 Derecha = keyboard_check(vk_right)
 
+if room == bonus {Rapidez=12}
+else{Rapidez=8}
+
 if Arriba
     {
     if y &gt; sprite_height/2 
@@ -102,7 +160,7 @@ if Izquierda
     if x &gt; sprite_width/2 
     x =x-Rapidez
     }
-
+globalvar naviones
 </string>
           </argument>
         </arguments>
@@ -124,6 +182,7 @@ if Izquierda
           <argument>
             <kind>1</kind>
             <string>///Disparo
+if room == bonus{powerup=true}
 
 if keyboard_check(vk_space)
     {
@@ -132,8 +191,128 @@ if keyboard_check(vk_space)
         instance_create(x,y-16,obj_PlaneBullet)
         Disparo=false
         alarm[0]=N_shots
+        
+        if powerup
+            {
+            balita1=instance_create(x+15,y,obj_PlaneBullet)
+            balita2=instance_create(x-15,y,obj_PlaneBullet)
+            }
         }
     }
+    
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///invencible
+globalvar invencible
+if room==bonus
+{invencible=true}
+
+
+
+if invencible
+{
+obj_Plane.sprite_index=spr_invencible
+}
+else
+{
+obj_Plane.sprite_index=spr_Plane
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_bonus">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (other) instance_destroy()
+naviones+=1
+room_goto(bonus)
+audio_stop_sound(snd_Fondo)
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_salud">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (other) instance_destroy()
+health += 20
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_power">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (other) instance_destroy()
+
+powerup=true
+alarm[1]=150
 </string>
           </argument>
         </arguments>
@@ -156,7 +335,10 @@ if keyboard_check(vk_space)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>health -= 10
+            <string>if invencible=false
+{
+health -= 10
+}
 with (other){instance_destroy()}
 </string>
           </argument>
@@ -180,8 +362,12 @@ with (other){instance_destroy()}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>health -= 10
+            <string>if invencible=false
+{
+health -= 10
+}
 with (other){instance_destroy()}
+
 </string>
           </argument>
         </arguments>

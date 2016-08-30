@@ -28,6 +28,8 @@
             <string>vspeed=4;
 Disparo=true;
 N_shots=20
+
+
 </string>
           </argument>
         </arguments>
@@ -74,7 +76,34 @@ N_shots=20
           <argument>
             <kind>1</kind>
             <string>///fin recorrido
+globalvar invencible
+globalvar naviones
 
+if room == bonus 
+{
+if score &lt;1000
+{speed=6}
+if score &gt;= 1000 and score &lt; 2000
+{speed=9} 
+if score &gt;= 2000 and score &lt; 4000
+{speed=12} 
+if score &gt;= 4000 and score &lt; 8000
+{speed=13} 
+if score &gt;= 8000
+{speed=15} 
+}
+
+else
+{
+if score &gt;= 1000 and score &lt; 2000
+{speed=6} 
+if score &gt;= 2000 and score &lt; 4000
+{speed=8} 
+if score &gt;= 4000 and score &lt; 8000
+{speed=9} 
+if score &gt;= 8000
+{speed=10} 
+}
 if y &gt; room_height
     {instance_destroy()}
 </string>
@@ -98,14 +127,15 @@ if y &gt; room_height
           <argument>
             <kind>1</kind>
             <string>///disparos
-
+if instance_exists(obj_Plane)
+{
         if (Disparo)
         {
         instance_create(x,y,obj_EnemyBullet2)
         Disparo=false
         alarm[0]=N_shots
         }
-    
+}    
     
 
 
@@ -135,6 +165,16 @@ if y &gt; room_height
 with (other){instance_destroy()}
 audio_play_sound(snd_Explote1,10,false)
 instance_change(obj_Explote1,false)
+
+
+var ipower=floor(random(10)+1)
+
+if ipower = 1 
+{
+instance_create(x,y,obj_power)
+}
+
+naviones+=1
 </string>
           </argument>
         </arguments>
@@ -157,8 +197,10 @@ instance_change(obj_Explote1,false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if invencible = false
+{
 health -= 30
+}
 audio_play_sound(snd_Explote1,10,false)
 instance_change(obj_Explote1,false)
 </string>

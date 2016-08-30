@@ -8,9 +8,11 @@
     <sound>sound\snd_Explote1</sound>
     <sound>sound\snd_Explote2</sound>
     <sound>sound\snd_Fondo</sound>
+    <sound>sound\snd_bonus</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Plane</sprite>
+    <sprite>sprites\spr_invencible</sprite>
     <sprite>sprites\spr_island1</sprite>
     <sprite>sprites\spr_island2</sprite>
     <sprite>sprites\spr_island3</sprite>
@@ -22,14 +24,27 @@
     <sprite>sprites\spr_EnemyBullet</sprite>
     <sprite>sprites\spr_EnemyBullet2</sprite>
     <sprite>sprites\spr_Explote1</sprite>
+    <sprite>sprites\spr_explote</sprite>
     <sprite>sprites\spr_Explote2</sprite>
     <sprite>sprites\spr_Life</sprite>
     <sprite>sprites\spr_Score</sprite>
+    <sprite>sprites\spr_power</sprite>
+    <sprite>sprites\spr_salud</sprite>
+    <sprite>sprites\sprite18</sprite>
+    <sprite>sprites\sprite19</sprite>
+    <sprite>sprites\sprite20</sprite>
+    <sprite>sprites\sprite21</sprite>
+    <sprite>sprites\sprite22</sprite>
+    <sprite>sprites\spr_bonus</sprite>
+    <sprite>sprites\spr_boss</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\background1</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\bos</path>
+  </paths>
   <objects name="objects">
     <object>objects\obj_Island1</object>
     <object>objects\obj_Island2</object>
@@ -42,15 +57,30 @@
     <object>objects\obj_Enemy2</object>
     <object>objects\obj_Enemy3</object>
     <object>objects\obj_Enemys</object>
-    <object>objects\obj_Puntuaciom</object>
+    <object>objects\obj_Puntuacion</object>
     <object>objects\obj_Explote1</object>
     <object>objects\obj_Explote2</object>
+    <object>objects\obj_power</object>
+    <object>objects\obj_salud</object>
+    <object>objects\obj_puntuacionfin</object>
+    <object>objects\object17</object>
+    <object>objects\object18</object>
+    <object>objects\object19</object>
+    <object>objects\object20</object>
+    <object>objects\notocar</object>
+    <object>objects\object22</object>
+    <object>objects\obj_bonus</object>
+    <object>objects\obj_boss</object>
+    <object>objects\obj_explote</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\enemigos</timeline>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\Menu</room>
     <room>rooms\Level_1</room>
+    <room>rooms\bonus</room>
+    <room>rooms\Game_over</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

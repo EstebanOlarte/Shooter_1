@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vspeed=6;
+            <string>vspeed=4;
+
 </string>
           </argument>
         </arguments>
@@ -48,7 +49,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if y &gt; room_height
+            <string>globalvar invencible
+globalvar naviones
+if room == bonus 
+{
+if score &lt;1000
+{speed=6} 
+if score &gt;= 1000 and score &lt; 2000
+{speed=9} 
+if score &gt;= 2000 and score &lt; 4000
+{speed=12} 
+if score &gt;= 4000 and score &lt; 8000
+{speed=13} 
+if score &gt;= 8000
+{speed=15} 
+}
+
+else
+{
+if score &gt;= 1000 and score &lt; 2000
+{speed=6} 
+if score &gt;= 2000 and score &lt; 4000
+{speed=8} 
+if score &gt;= 4000 and score &lt; 8000
+{speed=9} 
+if score &gt;= 8000
+{speed=10} 
+}
+
+if y &gt; room_height
     {instance_destroy()}
 </string>
           </argument>
@@ -77,6 +106,10 @@ with (other){ instance_destroy()}
 audio_play_sound(snd_Explote1,10,false)
 instance_change(obj_Explote1,false)
 
+
+
+naviones+=1
+
 </string>
           </argument>
         </arguments>
@@ -99,8 +132,10 @@ instance_change(obj_Explote1,false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if invencible = false
+{
 health -= 20
+}
 audio_play_sound(snd_Explote1,10,false)
 instance_change(obj_Explote1,false)
 </string>

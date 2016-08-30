@@ -408,4 +408,33 @@ instance_create(560,-65,obj_Enemy3)
       </action>
     </event>
   </entry>
+  <entry>
+    <step>1499</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>globalvar waves;
+if waves=2 or waves=4 or waves =6 or waves =8 or waves=10 or waves=12 or waves =14 or waves =16
+{instance_create(320,-50,obj_boss)}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
 </timeline>
